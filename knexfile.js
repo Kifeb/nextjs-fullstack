@@ -6,13 +6,13 @@
 module.exports = {
 
   development: {
-    client: 'mysql',
+    client: process.env.DB_CLIENT,
     connection: {
-      host : '127.0.0.1',
+      host : process.env.DB_HOST,
       port : 3306,
-      user : 'nextjs',
-      password : 'kifeb',
-      database : 'fullstacknextjs'
+      user : process.env.DB_USER,
+      password : process.env.DB_PASSWORD,
+      database : process.env.DB_NAME
     }
   },
 
@@ -33,11 +33,13 @@ module.exports = {
   },
 
   production: {
-    client: 'postgresql',
+    client: process.env.DB_CLIENT,
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      host : process.env.DB_HOST,
+      port : 3306,
+      user : process.env.DB_USER,
+      password : process.env.DB_PASSWORD,
+      database : process.env.DB_NAME
     },
     pool: {
       min: 2,

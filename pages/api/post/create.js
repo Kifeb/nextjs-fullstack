@@ -8,9 +8,8 @@ export default async function handler(req, res) {
 
     await authorization(req, res)
 
-    const data = JSON.parse(req.body)
-    const {title, content} = data
-
+    const {title, content} = req.body;
+    
     const create = await db("posts").insert({
         title,
         content

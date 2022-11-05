@@ -10,10 +10,10 @@ export default async function handler(req, res){
     await authorization(req,res)
 
     const {id} = req.query;
-    
+    console.log(id);
 
     const {title, content} = req.body;
-
+    console.log(title);
     await db("posts").where({id}).update({
         title,
         content
@@ -22,5 +22,5 @@ export default async function handler(req, res){
     const data = await db("posts").where({id}).first()
 
 
-    res.status(200).json({msg: "Post Succesesfully", data,})
+    res.status(200).json({msg: "Post Succesesfully"})
 }

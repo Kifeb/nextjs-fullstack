@@ -13,7 +13,7 @@ export default function authorization(req, res){
         if(head !== "Bearer") return res.status(403).json({msg: "Salah Type Auth"})
         
         //mencocokkan token dengan secretKey
-        const verify = jwt.verify(token, "w78vcwguviuwbviua", (err, decoded) => {
+        const verify = jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
             if(err) return res.status(401).json({msg: err.message})
 
             return resolve(decoded)
